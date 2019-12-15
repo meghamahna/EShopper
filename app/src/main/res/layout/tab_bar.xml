@@ -9,22 +9,22 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="Shops"
-        android:textSize="15dp"
-        android:textStyle="italic"
+        android:textSize="15sp"
+        android:textStyle="italic|bold"
         android:gravity="center"
         android:layout_weight="1"
-        android:textColor="@color/white_color"
+        android:textColor="@color/bright_color"
         android:id="@+id/shop"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="Services"
-        android:textSize="15dp"
-        android:textStyle="italic"
+        android:textSize="15sp"
+        android:textStyle="italic|bold"
         android:gravity="center"
         android:layout_weight="1"
-        android:textColor="@color/white_color"
+        android:textColor="@color/bright_color"
         android:id="@+id/services"/>
 
 </LinearLayout>
