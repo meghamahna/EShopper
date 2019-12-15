@@ -8,7 +8,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Real_Estate"></activity>
+        <activity android:name=".Travel"></activity>
+        <activity android:name=".Real_Estate" />
         <activity android:name=".Footwear" />
         <activity android:name=".Books" />
         <activity android:name=".Electronics" />
