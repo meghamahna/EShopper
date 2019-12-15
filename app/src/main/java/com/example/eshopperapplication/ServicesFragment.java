@@ -70,6 +70,8 @@ public class ServicesFragment extends Fragment {
                     case "Entertainment":
 
                         Toast.makeText(getActivity(), "Entertainment", Toast.LENGTH_SHORT).show();
+                        Intent intent2 = new Intent(getActivity(), Entertainment.class);
+                        startActivity(intent2);
                         break;
 
                     case "Food":
