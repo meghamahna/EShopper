@@ -9,6 +9,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
@@ -20,10 +21,22 @@ public class Real_Estate extends AppCompatActivity implements NavigationView.OnN
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
 
+    ListView listView;
+    int[] imageIcons;
+    String[] imageNames;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_real__estate);
+
+        imageIcons = new int[] {R.drawable.remax, R.drawable.century21, R.drawable.comfree};
+        imageNames = new String[]{"RE/MAX", "Century21", "ComFree"};
+
+        listView = findViewById(R.id.listView);
+
+        final ListAdapter listAdapter = new ListAdapter(this, imageIcons, imageNames);
+        listView.setAdapter(listAdapter);
 
         drawerLayout = findViewById(R.id.drawer);
         toolbar = findViewById(R.id.toolBar);
