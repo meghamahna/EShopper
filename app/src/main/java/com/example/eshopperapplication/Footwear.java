@@ -9,6 +9,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
@@ -20,10 +21,23 @@ public class Footwear extends AppCompatActivity implements NavigationView.OnNavi
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
 
+    ListView listView;
+    int[] imageIcons;
+    String[] imageNames;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_footwear);
+
+        imageIcons = new int[] {R.drawable.sketchers, R.drawable.footlocker, R.drawable.timberland};
+        imageNames = new String[]{"Sketchers", "Foot Locker", "Timberland"};
+
+        listView = findViewById(R.id.listView);
+
+        final ListAdapter listAdapter = new ListAdapter(this, imageIcons, imageNames);
+        listView.setAdapter(listAdapter);
+
 
         drawerLayout = findViewById(R.id.drawer);
         toolbar = findViewById(R.id.toolBar);
