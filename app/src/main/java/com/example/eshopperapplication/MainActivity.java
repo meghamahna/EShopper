@@ -116,12 +116,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }else if (menuItem.getItemId() == R.id.contact) {
             getSupportFragmentManager().beginTransaction().replace(R.id.container, new contact()).commit();
             Toast.makeText(MainActivity.this, "contact selected", Toast.LENGTH_SHORT).show();
-        } else if (menuItem.getItemId() == R.id.about) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.container, new about()).commit();
-            Toast.makeText(MainActivity.this, "about selected", Toast.LENGTH_SHORT).show();
-        } else if (menuItem.getItemId() == R.id.feedback){
+        }  else if (menuItem.getItemId() == R.id.feedback){
             getSupportFragmentManager().beginTransaction().replace(R.id.container, new feedback()).commit();
             Toast.makeText(MainActivity.this, "feedback selected", Toast.LENGTH_SHORT).show();
+        }
+        else if (menuItem.getItemId() == R.id.about) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, new Rate()).commit();
+            Toast.makeText(MainActivity.this, "about selected", Toast.LENGTH_SHORT).show();
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
