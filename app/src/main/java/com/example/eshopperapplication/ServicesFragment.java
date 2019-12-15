@@ -1,6 +1,7 @@
 package com.example.eshopperapplication;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,7 +11,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Toast;
 
 
 /**
@@ -44,5 +47,36 @@ public class ServicesFragment extends Fragment {
 
         final GridAdapter gridAdapter = new GridAdapter(getActivity(),imageIcons,imageNames);
         gridView.setAdapter(gridAdapter);
+
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (gridAdapter.getItem(position)) {
+
+                    case "Real Estate":
+
+                        Toast.makeText(getActivity(), "Real Estate", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getActivity(), Real_Estate.class);
+                        startActivity(intent);
+                        break;
+
+                    case "Travel":
+
+                        Toast.makeText(getActivity(), "Travel", Toast.LENGTH_SHORT).show();
+                        break;
+
+                    case "Entertainment":
+
+                        Toast.makeText(getActivity(), "Entertainment", Toast.LENGTH_SHORT).show();
+                        break;
+
+                    case "Food":
+
+                        Toast.makeText(getActivity(), "Food", Toast.LENGTH_SHORT).show();
+                        break;
+
+                }
+            }
+        });
     }
 }
