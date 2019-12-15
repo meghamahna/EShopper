@@ -63,8 +63,8 @@ public class ServicesFragment extends Fragment {
                     case "Travel":
 
                         Toast.makeText(getActivity(), "Travel", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getActivity(), Travel.class);
-                        startActivity(intent);
+                        Intent intent1 = new Intent(getActivity(), Travel.class);
+                        startActivity(intent1);
                         break;
 
                     case "Entertainment":
