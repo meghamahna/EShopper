@@ -1,6 +1,7 @@
 package com.example.eshopperapplication;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Toast;
 
 
 /**
@@ -61,6 +63,32 @@ public class ShopFragment extends Fragment {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                switch(gridAdapter.getItem(position)){
+
+                    case "Clothing":
+
+                        Toast.makeText(getActivity(), "Clothing", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getActivity(), Clothing.class);
+                        startActivity(intent);
+                        break;
+
+                    case "Electronics":
+
+                        Toast.makeText(getActivity(), "Electronics", Toast.LENGTH_SHORT).show();
+                        break;
+
+                    case "Books":
+
+                        Toast.makeText(getActivity(), "Books", Toast.LENGTH_SHORT).show();
+                        break;
+
+                    case "Footwear":
+
+                        Toast.makeText(getActivity(), "Footwear", Toast.LENGTH_SHORT).show();
+                        break;
+
+                }
 
             }
         });

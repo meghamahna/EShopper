@@ -26,8 +26,9 @@ class GridAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int position) {
-        return null;
+    public String getItem(int position) {
+
+        return imageNames[position];
     }
 
     @Override
