@@ -76,6 +76,8 @@ public class ShopFragment extends Fragment {
                     case "Electronics":
 
                         Toast.makeText(getActivity(), "Electronics", Toast.LENGTH_SHORT).show();
+                        Intent intent1 = new Intent(getActivity(), Electronics.class);
+                        startActivity(intent1);
                         break;
 
                     case "Books":
