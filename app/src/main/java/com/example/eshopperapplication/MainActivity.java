@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Toast.makeText(MainActivity.this, "feedback selected", Toast.LENGTH_SHORT).show();
         }
         else if (menuItem.getItemId() == R.id.about) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.container, new Rate()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, new rate()).commit();
             Toast.makeText(MainActivity.this, "about selected", Toast.LENGTH_SHORT).show();
         }
 
