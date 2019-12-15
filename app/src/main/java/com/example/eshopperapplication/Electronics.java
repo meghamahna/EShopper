@@ -31,8 +31,8 @@ public class Electronics extends AppCompatActivity implements NavigationView.OnN
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_electronics);
 
-        imageIcons = new int[] {R.drawable.gap, R.drawable.hollister, R.drawable.hnm};
-        imageNames = new String[]{"GAP", "Hollister", "HnM"};
+        imageIcons = new int[] {R.drawable.slickdeals, R.drawable.newegg, R.drawable.techbargains};
+        imageNames = new String[]{"Slick Deals", "NewEgg", "Tech bargains"};
 
         listView = findViewById(R.id.listView);
 
