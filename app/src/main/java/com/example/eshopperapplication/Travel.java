@@ -9,6 +9,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
@@ -20,12 +21,24 @@ public class Travel extends AppCompatActivity implements NavigationView.OnNaviga
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
 
+    ListView listView;
+    int[] imageIcons;
+    String[] imageNames;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_travel);
         drawerLayout = findViewById(R.id.drawer);
         toolbar = findViewById(R.id.toolBar);
+
+        imageIcons = new int[] {R.drawable.tripcentral, R.drawable.expedia, R.drawable.tripadvisor};
+        imageNames = new String[]{"Trip Central", "Expedia", "Tripo Advisor"};
+
+        listView = findViewById(R.id.listView);
+
+        final ListAdapter listAdapter = new ListAdapter(this, imageIcons, imageNames);
+        listView.setAdapter(listAdapter);
         navigationView = findViewById(R.id.navigationView);
         navigationView.setNavigationItemSelectedListener(this);
         setSupportActionBar(toolbar);
