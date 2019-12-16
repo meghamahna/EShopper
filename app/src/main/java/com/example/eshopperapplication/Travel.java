@@ -7,9 +7,12 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
@@ -55,6 +58,33 @@ public class Travel extends AppCompatActivity implements NavigationView.OnNaviga
         toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawerOpen,R.string.drawerClose);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                switch(newlist.get(position).imageNames){
+
+                    case "Trip Central":
+                        Intent intent = new Intent(Travel.this, WebViewFile.class);
+                        intent.putExtra("link", "https://www.tripcentral.ca");
+                        startActivity(intent);
+                        break;
+
+                    case "Expedia":
+                        Intent intent1 = new Intent(Travel.this, WebViewFile.class);
+                        intent1.putExtra("link", "https://www.expedia.ca");
+                        startActivity(intent1);
+                        break;
+
+                    case "Trip Advisor":
+                        Intent intent2 = new Intent(Travel.this, WebViewFile.class);
+                        intent2.putExtra("link", "https://www.tripadvisor.ca");
+                        startActivity(intent2);
+                        break;
+                }
+            }
+        });
     }
 
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
