@@ -9,6 +9,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
@@ -20,11 +21,25 @@ public class Food extends AppCompatActivity implements NavigationView.OnNavigati
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
 
+    ListView listView;
+    int[] imageIcons;
+    String[] imageNames;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food);
+
+        imageIcons = new int[] {R.drawable.foodora, R.drawable.skip, R.drawable.ubereats};
+        imageNames = new String[]{"Foodora", "Skip The Dishes", "Uber Eats"};
+
+        listView = findViewById(R.id.listView);
+
+        final ListAdapter listAdapter = new ListAdapter(this, imageIcons, imageNames);
+        listView.setAdapter(listAdapter);
 
         drawerLayout = findViewById(R.id.drawer);
         toolbar = findViewById(R.id.toolBar);
