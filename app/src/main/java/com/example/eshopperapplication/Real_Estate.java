@@ -7,9 +7,12 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
@@ -39,7 +42,7 @@ public class Real_Estate extends AppCompatActivity implements NavigationView.OnN
 
         newlist.add(new customclass(R.drawable.remax,"RE/MAX"));
         newlist.add(new customclass(R.drawable.century21,"Century 21"));
-        newlist.add(new customclass(R.drawable.comfree,"ComFree"));
+        newlist.add(new customclass(R.drawable.purplebricks,"Purple Bricks"));
 
         listView = findViewById(R.id.listView);
 
@@ -55,6 +58,33 @@ public class Real_Estate extends AppCompatActivity implements NavigationView.OnN
         toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawerOpen,R.string.drawerClose);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                switch(newlist.get(position).imageNames){
+
+                    case "RE/MAX":
+                        Intent intent = new Intent(Real_Estate.this, WebViewFile.class);
+                        intent.putExtra("link", "https://www.remax.ca");
+                        startActivity(intent);
+                        break;
+
+                    case "Century 21":
+                        Intent intent1 = new Intent(Real_Estate.this, WebViewFile.class);
+                        intent1.putExtra("link", "https://www.century21.ca");
+                        startActivity(intent1);
+                        break;
+
+                    case "Purple Bricks":
+                        Intent intent2 = new Intent(Real_Estate.this, WebViewFile.class);
+                        intent2.putExtra("link", "https://purplebricks.ca/on");
+                        startActivity(intent2);
+                        break;
+                }
+            }
+        });
     }
 
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
