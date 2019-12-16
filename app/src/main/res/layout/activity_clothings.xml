@@ -26,7 +26,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/toolBar"
                 android:background="@color/bright_color"/>
-            
+
 
             <FrameLayout
                 android:layout_width="match_parent"

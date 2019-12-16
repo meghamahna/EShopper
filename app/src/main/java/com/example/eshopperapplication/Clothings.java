@@ -39,9 +39,9 @@ public class Clothings extends AppCompatActivity implements NavigationView.OnNav
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clothings);
 
-        newlist.add(new customclass(R.drawable.slickdeals,"GAP"));
-        newlist.add(new customclass(R.drawable.newegg,"Hollister"));
-        newlist.add(new customclass(R.drawable.techbargains,"HnM"));
+        newlist.add(new customclass(R.drawable.gap,"GAP"));
+        newlist.add(new customclass(R.drawable.hollister,"Hollister"));
+        newlist.add(new customclass(R.drawable.hnm,"HnM"));
 
         listView = findViewById(R.id.listView);
 

@@ -42,8 +42,6 @@ public class Electronics extends AppCompatActivity implements NavigationView.OnN
         newlist.add(new customclass(R.drawable.newegg,"NewEgg"));
         newlist.add(new customclass(R.drawable.techbargains,"Tech bargains"));
 
-
-
         listView = findViewById(R.id.listView);
 
         listView.setAdapter(listAdapter);
