@@ -47,8 +47,6 @@ public class Clothings extends AppCompatActivity implements NavigationView.OnNav
 
         listView.setAdapter(listAdapter);
 
-
-
         drawerLayout = findViewById(R.id.drawer);
         toolbar = findViewById(R.id.toolBar);
         navigationView = findViewById(R.id.navigationView);
