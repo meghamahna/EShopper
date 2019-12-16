@@ -7,9 +7,12 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
@@ -59,6 +62,33 @@ public class Food extends AppCompatActivity implements NavigationView.OnNavigati
         toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawerOpen,R.string.drawerClose);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                switch(newlist.get(position).imageNames){
+
+                    case "Foodora":
+                        Intent intent = new Intent(Food.this, WebViewFile.class);
+                        intent.putExtra("link", "https://www.foodora.ca");
+                        startActivity(intent);
+                        break;
+
+                    case "Skip The Dishes":
+                        Intent intent1 = new Intent(Food.this, WebViewFile.class);
+                        intent1.putExtra("link", "https://www.skipthedishes.com");
+                        startActivity(intent1);
+                        break;
+
+                    case "Uber Eats":
+                        Intent intent2 = new Intent(Food.this, WebViewFile.class);
+                        intent2.putExtra("link", "https://www.ubereats.com/en-CA/");
+                        startActivity(intent2);
+                        break;
+                }
+            }
+        });
     }
 
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
