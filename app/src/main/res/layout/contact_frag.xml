@@ -1,14 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_color">
+    android:background="@color/light_color"
+    tools:ignore="MissingDefaultResource"
+    android:orientation="vertical">
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Contact"
-        android:textSize="40sp"
-        android:layout_centerInParent="true"/>
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:text="Contact us here"
+        android:textSize="30sp"
+        android:textStyle="bold|italic" />
 
-</RelativeLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp">
+    <ImageView
+        android:id="@+id/facebbok"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:onClick="go_to_link1"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/facebook"
+        />
+        <ImageView
+            android:id="@+id/gmail"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/gmail"
+            android:onClick="go_to_link2"
+
+            />
+        <ImageView
+            android:id="@+id/twitter"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/twitter"
+            android:onClick="go_to_link3"
+
+            />
+</LinearLayout>
+
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:text="mobile  +16477715906"
+        android:textSize="20sp"
+        android:textStyle="italic" />
+</LinearLayout>
