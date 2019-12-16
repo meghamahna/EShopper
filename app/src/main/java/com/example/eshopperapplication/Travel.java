@@ -8,11 +8,15 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.ArrayList;
 
 public class Travel extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -25,6 +29,9 @@ public class Travel extends AppCompatActivity implements NavigationView.OnNaviga
     int[] imageIcons;
     String[] imageNames;
 
+    ArrayList<customclass> newlist = new ArrayList<>();
+    final ListAdapter listAdapter = new ListAdapter(this, newlist);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,13 +39,14 @@ public class Travel extends AppCompatActivity implements NavigationView.OnNaviga
         drawerLayout = findViewById(R.id.drawer);
         toolbar = findViewById(R.id.toolBar);
 
-        imageIcons = new int[] {R.drawable.tripcentral, R.drawable.expedia, R.drawable.tripadvisor};
-        imageNames = new String[]{"Trip Central", "Expedia", "Tripo Advisor"};
+        newlist.add(new customclass(R.drawable.tripcentral,"Trip Central"));
+        newlist.add(new customclass(R.drawable.expedia,"Expedia"));
+        newlist.add(new customclass(R.drawable.tripadvisor,"Trip Advisor"));
 
         listView = findViewById(R.id.listView);
 
-//        final ListAdapter listAdapter = new ListAdapter(this, imageIcons, imageNames);
-//        listView.setAdapter(listAdapter);
+        listView.setAdapter(listAdapter);
+
         navigationView = findViewById(R.id.navigationView);
         navigationView.setNavigationItemSelectedListener(this);
         setSupportActionBar(toolbar);
@@ -67,6 +75,41 @@ public class Travel extends AppCompatActivity implements NavigationView.OnNaviga
 
         drawerLayout.closeDrawer(GravityCompat.START);
         return false;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+
+        getMenuInflater().inflate(R.menu.search_menu, menu);
+        MenuItem menuItem = menu.findItem(R.id.search);
+        SearchView searchView = (SearchView) menuItem.getActionView();
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                ArrayList<customclass> results = new ArrayList<>();
+
+                for (customclass c1 : newlist) {
+                    if (c1.imageNames.contains(newText)) {
+                        results.add(c1);
+                    }
+
+                    ( (ListAdapter)listView.getAdapter()).update(results);
+                }
+
+
+                return false;
+            }
+        });
+
+        return super.onCreateOptionsMenu(menu);
     }
 }
 
