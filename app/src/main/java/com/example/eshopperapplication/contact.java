@@ -1,9 +1,11 @@
 package com.example.eshopperapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,6 +17,48 @@ public class contact extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.contact_frag, container, false);
+
+
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
+        ImageView facebook = view.findViewById(R.id.facebbok);
+        ImageView gmail = view.findViewById(R.id.gmail);
+        ImageView twitter = view.findViewById(R.id.twitter);
+
+        facebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(),ContactLink.class);
+                String link = "https://www.youtube.com/watch?v=TUXui5ItBkM";
+                i.putExtra("link",link);
+                startActivity(i);
+            }
+        });
+
+
+        gmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(),ContactLink.class);
+                String link = "https://www.youtube.com/watch?v=TUXui5ItBkM";
+                i.putExtra("link",link);
+                startActivity(i);
+            }
+        });
+        twitter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(),ContactLink.class);
+                String link = "https://www.youtube.com/watch?v=TUXui5ItBkM";
+                i.putExtra("link",link);
+                startActivity(i);
+            }
+        });
+
+
 
 
     }
