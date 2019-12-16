@@ -9,13 +9,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class Clothing extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class Clothings extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     DrawerLayout drawerLayout;
     Toolbar toolbar;
@@ -26,11 +25,10 @@ public class Clothing extends AppCompatActivity implements NavigationView.OnNavi
     int[] imageIcons;
     String[] imageNames;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_clothing);
+        setContentView(R.layout.activity_clothings);
         imageIcons = new int[] {R.drawable.gap, R.drawable.hollister, R.drawable.hnm};
         imageNames = new String[]{"GAP", "Hollister", "HnM"};
 
@@ -60,14 +58,14 @@ public class Clothing extends AppCompatActivity implements NavigationView.OnNavi
             getSupportFragmentManager().beginTransaction().replace(R.id.container, new home()).commit();
         }else if (menuItem.getItemId() == R.id.contact) {
             getSupportFragmentManager().beginTransaction().replace(R.id.container, new contact()).commit();
-            Toast.makeText(Clothing.this, "contact selected", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Clothings.this, "contact selected", Toast.LENGTH_SHORT).show();
         }  else if (menuItem.getItemId() == R.id.feedback){
             getSupportFragmentManager().beginTransaction().replace(R.id.container, new feedback()).commit();
-            Toast.makeText(Clothing.this, "feedback selected", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Clothings.this, "feedback selected", Toast.LENGTH_SHORT).show();
         }
         else if (menuItem.getItemId() == R.id.about) {
             getSupportFragmentManager().beginTransaction().replace(R.id.container, new rate()).commit();
-            Toast.makeText(Clothing.this, "about selected", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Clothings.this, "about selected", Toast.LENGTH_SHORT).show();
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
@@ -75,3 +73,4 @@ public class Clothing extends AppCompatActivity implements NavigationView.OnNavi
     }
 
 }
+

@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bgcolor"
     android:orientation="vertical"
-    tools:context=".Clothing">
+    android:background="@drawable/bgcolor"
+    tools:context=".Clothings">
 
     <androidx.drawerlayout.widget.DrawerLayout
         android:layout_width="match_parent"
@@ -27,7 +27,17 @@
                 android:id="@+id/toolBar"
                 android:background="@color/bright_color"/>
 
-           c
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/container">
+
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/listView"/>
+
+            </FrameLayout>
 
 
         </LinearLayout>
@@ -44,6 +54,5 @@
 
 
     </androidx.drawerlayout.widget.DrawerLayout>
-
 
 </LinearLayout>

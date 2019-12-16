@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Contact_Link"></activity>
+        <activity android:name=".Clothings"></activity>
+        <activity android:name=".Contact_Link" />
         <activity android:name=".Food" />
         <activity android:name=".Entertainment" />
         <activity android:name=".Travel" />
