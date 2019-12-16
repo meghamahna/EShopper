@@ -27,17 +27,7 @@
                 android:id="@+id/toolBar"
                 android:background="@color/bright_color"/>
 
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/container">
-
-                <ListView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/listView"/>
-
-            </FrameLayout>
+           c
 
 
         </LinearLayout>
