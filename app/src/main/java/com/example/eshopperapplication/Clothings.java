@@ -8,9 +8,12 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
@@ -58,6 +61,21 @@ public class Clothings extends AppCompatActivity implements NavigationView.OnNav
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                switch(newlist.get(position).imageNames){
+
+                    case "GAP":
+                        Intent intent = new Intent(this, ClothBrands.class);
+                        intent.putExtra("gap", "https://www.gapcanada.ca");
+                        startActivity(intent);
+                        break;
+                }
+            }
+        });
+
 
 
     }
@@ -81,6 +99,8 @@ public class Clothings extends AppCompatActivity implements NavigationView.OnNav
         drawerLayout.closeDrawer(GravityCompat.START);
         return false;
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

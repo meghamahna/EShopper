@@ -8,11 +8,12 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:usesCleartextTraffic="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".Clothings"></activity>
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".ClothBrands"></activity>
+        <activity android:name=".Clothings" />
         <activity android:name=".Contact_Link" />
         <activity android:name=".Food" />
         <activity android:name=".Entertainment" />
