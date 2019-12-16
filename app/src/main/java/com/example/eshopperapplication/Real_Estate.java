@@ -35,8 +35,8 @@ public class Real_Estate extends AppCompatActivity implements NavigationView.OnN
 
         listView = findViewById(R.id.listView);
 
-        final ListAdapter listAdapter = new ListAdapter(this, imageIcons, imageNames);
-        listView.setAdapter(listAdapter);
+//        final ListAdapter listAdapter = new ListAdapter(this, imageIcons, imageNames);
+//        listView.setAdapter(listAdapter);
 
         drawerLayout = findViewById(R.id.drawer);
         toolbar = findViewById(R.id.toolBar);

@@ -35,8 +35,8 @@ public class Footwear extends AppCompatActivity implements NavigationView.OnNavi
 
         listView = findViewById(R.id.listView);
 
-        final ListAdapter listAdapter = new ListAdapter(this, imageIcons, imageNames);
-        listView.setAdapter(listAdapter);
+//        final ListAdapter listAdapter = new ListAdapter(this, imageIcons, imageNames);
+//        listView.setAdapter(listAdapter);
 
 
         drawerLayout = findViewById(R.id.drawer);

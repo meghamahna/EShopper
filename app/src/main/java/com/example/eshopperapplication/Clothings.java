@@ -9,6 +9,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -28,28 +29,23 @@ public class Clothings extends AppCompatActivity implements NavigationView.OnNav
 
     ListView listView;
     int[] imageIcons;
-    String[] imageNames;
-    ArrayList<String> list;
+
+
+    ArrayList<customclass> newlist = new ArrayList<>();
+    final ListAdapter listAdapter = new ListAdapter(this, newlist);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clothings);
-        imageIcons = new int[] {R.drawable.gap, R.drawable.hollister, R.drawable.hnm};
-        imageNames = new String[]{"GAP", "Hollister", "HnM"};
+
+        newlist.add(new customclass(R.drawable.slickdeals,"GAP"));
+        newlist.add(new customclass(R.drawable.newegg,"Hollister"));
+        newlist.add(new customclass(R.drawable.techbargains,"HnM"));
 
         listView = findViewById(R.id.listView);
-        searchView = findViewById(R.id.search_view);
 
-        list = new ArrayList<>();
-
-        for(int i=0; i < imageNames.length; i++){
-            list.add(imageNames[i]);
-        }
-
-        final ListAdapter listAdapter = new ListAdapter(this, imageIcons, imageNames);
         listView.setAdapter(listAdapter);
-
 
 
 
@@ -64,21 +60,6 @@ public class Clothings extends AppCompatActivity implements NavigationView.OnNav
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-
-                if(list.contains(newText)) {
-                    listAdapter.getFilter().filter(newText);
-                }
-                return true;
-            }
-        });
 
 
     }
@@ -101,6 +82,41 @@ public class Clothings extends AppCompatActivity implements NavigationView.OnNav
 
         drawerLayout.closeDrawer(GravityCompat.START);
         return false;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+
+        getMenuInflater().inflate(R.menu.search_menu, menu);
+        MenuItem menuItem = menu.findItem(R.id.search);
+        SearchView searchView = (SearchView) menuItem.getActionView();
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                ArrayList<customclass> results = new ArrayList<>();
+
+                for (customclass c1 : newlist) {
+                    if (c1.imageNames.contains(newText)) {
+                        results.add(c1);
+                    }
+
+                    ( (ListAdapter)listView.getAdapter()).update(results);
+                }
+
+
+                return false;
+            }
+        });
+
+        return super.onCreateOptionsMenu(menu);
     }
 
 

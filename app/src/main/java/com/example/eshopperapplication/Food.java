@@ -37,9 +37,9 @@ public class Food extends AppCompatActivity implements NavigationView.OnNavigati
         imageNames = new String[]{"Foodora", "Skip The Dishes", "Uber Eats"};
 
         listView = findViewById(R.id.listView);
-
-        final ListAdapter listAdapter = new ListAdapter(this, imageIcons, imageNames);
-        listView.setAdapter(listAdapter);
+//
+//        final ListAdapter listAdapter = new ListAdapter(this, imageIcons, imageNames);
+//        listView.setAdapter(listAdapter);
 
         drawerLayout = findViewById(R.id.drawer);
         toolbar = findViewById(R.id.toolBar);

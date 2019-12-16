@@ -35,8 +35,8 @@ public class Entertainment extends AppCompatActivity implements NavigationView.O
 
         listView = findViewById(R.id.listView);
 
-        final ListAdapter listAdapter = new ListAdapter(this, imageIcons, imageNames);
-        listView.setAdapter(listAdapter);
+//        final ListAdapter listAdapter = new ListAdapter(this, imageIcons, imageNames);
+//        listView.setAdapter(listAdapter);
 
         drawerLayout = findViewById(R.id.drawer);
         toolbar = findViewById(R.id.toolBar);

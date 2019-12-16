@@ -37,8 +37,8 @@ public class Travel extends AppCompatActivity implements NavigationView.OnNaviga
 
         listView = findViewById(R.id.listView);
 
-        final ListAdapter listAdapter = new ListAdapter(this, imageIcons, imageNames);
-        listView.setAdapter(listAdapter);
+//        final ListAdapter listAdapter = new ListAdapter(this, imageIcons, imageNames);
+//        listView.setAdapter(listAdapter);
         navigationView = findViewById(R.id.navigationView);
         navigationView.setNavigationItemSelectedListener(this);
         setSupportActionBar(toolbar);

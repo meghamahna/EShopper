@@ -10,27 +10,35 @@ import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class ListAdapter extends BaseAdapter implements Filterable {
+import java.util.ArrayList;
+
+public class ListAdapter extends BaseAdapter{
 
     Context context;
-    int[] imageIcons;
-    String[] imageNames;
 
-    public ListAdapter(Context context, int[] imageIcons, String[] imageNames) {
+    ArrayList<customclass> newlist;
+
+
+    public ListAdapter(Context context, ArrayList<customclass> newlist) {
         this.context = context;
-        this.imageIcons = imageIcons;
-        this.imageNames = imageNames;
+        this.newlist = newlist;
     }
 
+    public  void update(ArrayList<customclass> results){
+        newlist = new ArrayList<>();
+        newlist.addAll(results);
+        notifyDataSetChanged();
+    }
     @Override
     public int getCount() {
-        return imageNames.length;
+        return newlist.size();
     }
 
     @Override
-    public String getItem(int position) {
-        return imageNames[position];
+    public Object getItem(int position) {
+        return null;
     }
+
 
     @Override
     public long getItemId(int position) {
@@ -40,27 +48,12 @@ public class ListAdapter extends BaseAdapter implements Filterable {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if(convertView == null)
-        convertView = LayoutInflater.from(context).inflate(R.layout.list_cell_item, null);
-
+            convertView = LayoutInflater.from(context).inflate(R.layout.list_cell_item, null);
+        customclass c = newlist.get(position);
         ImageView imageView = convertView.findViewById(R.id.imageView);
         TextView textView = convertView.findViewById(R.id.icon_text);
-        imageView.setImageResource(imageIcons[position]);
-        textView.setText(imageNames[position]);
+        imageView.setImageResource(c.getImageIcons());
+        textView.setText(c.imageNames);
         return convertView;
-    }
-
-    @Override
-    public android.widget.Filter getFilter() {
-        return new Filter() {
-            @Override
-            protected FilterResults performFiltering(CharSequence constraint) {
-                return null;
-            }
-
-            @Override
-            protected void publishResults(CharSequence constraint, FilterResults results) {
-
-            }
-        };
     }
 }
