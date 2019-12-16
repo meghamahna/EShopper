@@ -28,44 +28,39 @@ public class contact extends Fragment {
         ImageView gmail = view.findViewById(R.id.gmail);
         ImageView twitter = view.findViewById(R.id.twitter);
 
+
+
+
+
         facebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Contact_Link.class);
-                intent.putExtra("link", "https://www.google.com/?client=safari");
-                startActivity(intent);
+                Intent i = new Intent(getActivity(),Contact_Link.class);
+                String link = "https://www.facebook.com/?ref=tn_tnmn";
+                i.putExtra("link",link);
+                startActivity(i);
             }
         });
 
-//        facebook.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(getActivity(),ContactLink.class);
-//                String link = "https://www.google.com/?client=safari";
-//                i.putExtra("link",link);
-//                startActivity(i);
-//            }
-//        });
-//
-//
-//        gmail.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(getActivity(),ContactLink.class);
-//                String link = "https://www.youtube.com/watch?v=TUXui5ItBkM";
-//                i.putExtra("link",link);
-//                startActivity(i);
-//            }
-//        });
-//        twitter.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(getActivity(),ContactLink.class);
-//                String link = "https://www.youtube.com/watch?v=TUXui5ItBkM";
-//                i.putExtra("link",link);
-//                startActivity(i);
-//            }
-//        });
+
+        gmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(),Contact_Link.class);
+                String link = "https://mail.google.com/mail/u/0/#inbox?compose=CllgCKCHVCdRPFKgMvBcBTRrnMqThDHzbHNQWLhQpsXdPGNLcTMrkWCjmDLPkTFhFfBvWMdxCKg";
+                i.putExtra("link",link);
+                startActivity(i);
+            }
+        });
+        twitter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(),Contact_Link.class);
+                String link = "https://www.youtube.com/watch?v=TUXui5ItBkM";
+                i.putExtra("link",link);
+                startActivity(i);
+            }
+        });
 
 
 

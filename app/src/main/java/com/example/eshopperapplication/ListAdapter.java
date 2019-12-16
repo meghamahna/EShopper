@@ -5,10 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class ListAdapter extends BaseAdapter {
+public class ListAdapter extends BaseAdapter implements Filterable {
 
     Context context;
     int[] imageIcons;
@@ -45,5 +47,20 @@ public class ListAdapter extends BaseAdapter {
         imageView.setImageResource(imageIcons[position]);
         textView.setText(imageNames[position]);
         return convertView;
+    }
+
+    @Override
+    public android.widget.Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                return null;
+            }
+
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+
+            }
+        };
     }
 }

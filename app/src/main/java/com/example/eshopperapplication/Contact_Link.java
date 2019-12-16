@@ -32,5 +32,7 @@ public class Contact_Link extends AppCompatActivity {
 
         webview.loadUrl(link);
 
+
+
     }
 }
