@@ -7,9 +7,12 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
@@ -56,6 +59,33 @@ public class Electronics extends AppCompatActivity implements NavigationView.OnN
         toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawerOpen,R.string.drawerClose);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                switch(newlist.get(position).imageNames){
+
+                    case "Slick Deals":
+                        Intent intent = new Intent(Electronics.this, WebViewFile.class);
+                        intent.putExtra("link", "https://slickdeals.net");
+                        startActivity(intent);
+
+
+                    case "NewEgg":
+                        Intent intent1 = new Intent(Electronics.this, WebViewFile.class);
+                        intent1.putExtra("link", "https://www.newegg.ca");
+                        startActivity(intent1);
+                        break;
+
+                    case "Tech bargains":
+                        Intent intent2 = new Intent(Electronics.this, WebViewFile.class);
+                        intent2.putExtra("link", "https://www.techbargains.com");
+                        startActivity(intent2);
+                        break;
+                }
+            }
+        });
     }
 
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
