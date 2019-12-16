@@ -1,23 +1,21 @@
 package com.example.eshopperapplication;
 
-import android.app.ProgressDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import androidx.appcompat.app.AppCompatActivity;
+public class Contact_Link extends AppCompatActivity {
 
-public class ContactLink extends AppCompatActivity{
- private  WebView webview;
-
-
-    private ProgressDialog progDailog;
+    private WebView webview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_contact_link);
+        setContentView(R.layout.activity_contact__link);
+
         Intent i = getIntent();
         String link = i.getExtras().getString("link");
 
@@ -32,10 +30,7 @@ public class ContactLink extends AppCompatActivity{
 
 
 
-     webview.loadUrl(link);
-
-
-
+        webview.loadUrl(link);
 
     }
 }
