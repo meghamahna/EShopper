@@ -68,9 +68,21 @@ public class Clothings extends AppCompatActivity implements NavigationView.OnNav
                 switch(newlist.get(position).imageNames){
 
                     case "GAP":
-                        Intent intent = new Intent(this, ClothBrands.class);
-                        intent.putExtra("gap", "https://www.gapcanada.ca");
+                        Intent intent = new Intent(Clothings.this, ClothBrands.class);
+                        intent.putExtra("link", "https://www.gapcanada.ca");
                         startActivity(intent);
+
+
+                    case "Hollister":
+                        Intent intent1 = new Intent(Clothings.this, ClothBrands.class);
+                        intent1.putExtra("link", "https://www.hollisterco.com/shop/ca/sale");
+                        startActivity(intent1);
+                        break;
+
+                    case "HnM":
+                        Intent intent2 = new Intent(Clothings.this, ClothBrands.class);
+                        intent2.putExtra("link", "https://www2.hm.com/en_ca/index.html");
+                        startActivity(intent2);
                         break;
                 }
             }
