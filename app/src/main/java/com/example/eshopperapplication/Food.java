@@ -104,7 +104,7 @@ public class Food extends AppCompatActivity implements NavigationView.OnNavigati
         }
         else if (menuItem.getItemId() == R.id.about) {
             getSupportFragmentManager().beginTransaction().replace(R.id.container, new rate()).commit();
-            Toast.makeText(Food.this, "about selected", Toast.LENGTH_SHORT).show();
+
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);

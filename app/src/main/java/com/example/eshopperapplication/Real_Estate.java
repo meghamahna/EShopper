@@ -99,7 +99,7 @@ public class Real_Estate extends AppCompatActivity implements NavigationView.OnN
         }
         else if (menuItem.getItemId() == R.id.about) {
             getSupportFragmentManager().beginTransaction().replace(R.id.container, new rate()).commit();
-            Toast.makeText(Real_Estate.this, "about selected", Toast.LENGTH_SHORT).show();
+
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);

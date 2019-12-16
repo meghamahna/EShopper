@@ -105,7 +105,7 @@ public class Clothings extends AppCompatActivity implements NavigationView.OnNav
         }
         else if (menuItem.getItemId() == R.id.about) {
             getSupportFragmentManager().beginTransaction().replace(R.id.container, new rate()).commit();
-            Toast.makeText(Clothings.this, "about selected", Toast.LENGTH_SHORT).show();
+
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);

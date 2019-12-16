@@ -94,14 +94,14 @@ public class Books extends AppCompatActivity implements NavigationView.OnNavigat
             getSupportFragmentManager().beginTransaction().replace(R.id.container, new home()).commit();
         }else if (menuItem.getItemId() == R.id.contact) {
             getSupportFragmentManager().beginTransaction().replace(R.id.container, new contact()).commit();
-            Toast.makeText(Books.this, "contact selected", Toast.LENGTH_SHORT).show();
+
         }  else if (menuItem.getItemId() == R.id.feedback){
             getSupportFragmentManager().beginTransaction().replace(R.id.container, new feedback()).commit();
-            Toast.makeText(Books.this, "feedback selected", Toast.LENGTH_SHORT).show();
+
         }
         else if (menuItem.getItemId() == R.id.about) {
             getSupportFragmentManager().beginTransaction().replace(R.id.container, new rate()).commit();
-            Toast.makeText(Books.this, "about selected", Toast.LENGTH_SHORT).show();
+
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);

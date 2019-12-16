@@ -100,7 +100,7 @@ public class Travel extends AppCompatActivity implements NavigationView.OnNaviga
         }
         else if (menuItem.getItemId() == R.id.about) {
             getSupportFragmentManager().beginTransaction().replace(R.id.container, new rate()).commit();
-            Toast.makeText(Travel.this, "about selected", Toast.LENGTH_SHORT).show();
+            
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
