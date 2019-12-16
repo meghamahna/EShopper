@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-public class ClothBrands extends AppCompatActivity {
+public class WebViewFile extends AppCompatActivity {
 
     WebView webView;
 

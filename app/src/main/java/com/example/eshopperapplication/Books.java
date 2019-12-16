@@ -7,9 +7,12 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
@@ -55,6 +58,34 @@ public class Books extends AppCompatActivity implements NavigationView.OnNavigat
         toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawerOpen,R.string.drawerClose);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                switch(newlist.get(position).imageNames){
+
+                    case "Kobo":
+                        Intent intent = new Intent(Books.this, WebViewFile.class);
+                        intent.putExtra("link", "https://www.kobo.com");
+                        startActivity(intent);
+                        break;
+
+
+                    case "Overdrive":
+                        Intent intent1 = new Intent(Books.this, WebViewFile.class);
+                        intent1.putExtra("link", "https://www.overdrive.com");
+                        startActivity(intent1);
+                        break;
+
+                    case "Thrift Books":
+                        Intent intent2 = new Intent(Books.this, WebViewFile.class);
+                        intent2.putExtra("link", "https://www.thriftbooks.com");
+                        startActivity(intent2);
+                        break;
+                }
+            }
+        });
     }
 
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {

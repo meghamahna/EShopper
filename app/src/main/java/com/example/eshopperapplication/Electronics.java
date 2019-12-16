@@ -70,6 +70,7 @@ public class Electronics extends AppCompatActivity implements NavigationView.OnN
                         Intent intent = new Intent(Electronics.this, WebViewFile.class);
                         intent.putExtra("link", "https://slickdeals.net");
                         startActivity(intent);
+                        break;
 
 
                     case "NewEgg":
